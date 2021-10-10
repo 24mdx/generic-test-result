@@ -8,6 +8,9 @@
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
+  buildOptions: {
+    site: 'https://24mdx.github.io/generic-test-result/',
+  },
   // Enable Tailwind by telling Astro where your Tailwind config file lives.
   devOptions: {
     tailwindConfig: './tailwind.config.js',
