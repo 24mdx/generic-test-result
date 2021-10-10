@@ -4,7 +4,7 @@
 # Remember to add API_TOKEN_GITHUB in repo Settings > Secrets as well!
 env:
   githubEmail: loni9000@tutanota.com
-  deployToRepo: 24mdx.github.io/generic-test-result
+  deployToRepo: generic-test-result
 
 name: Github Pages Astro CI
 
