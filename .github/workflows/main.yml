@@ -5,6 +5,7 @@
 env:
   githubEmail: loni9000@tutanota.com
   deployToRepo: generic-test-result
+  webRoot: https://24mdx.github.io/generic-test-result
 
 name: Github Pages Astro CI
 
@@ -35,6 +36,11 @@ jobs:
         run: |
           npm run build
           touch ./dist/.nojekyll
+
+      # Fix href/paths because of subdirectory deployment
+      - name: Fix href and paths
+        run: |
+          find ./dist -name '*.html' -exec sed -i '' -E "s=(/favicon.ico|/_astro|/_snowpack)=${{ env.webRoot }}\1=g" {} \;
 
       # Push to your pages repo
       - name: Push to pages repo
