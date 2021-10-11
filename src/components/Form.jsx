@@ -11,7 +11,7 @@ export default function Form({ children }) {
         if (name && date && time) {
             const queryRaw = [date, time, name].join(' ');
             const query = btoa(queryRaw);
-            const prefix = '/result?';
+            const prefix = 'https://24mdx.github.io/generic-test-result/result/?';
             setQr(`${prefix}${query}`);
         } else {
             setQr();
