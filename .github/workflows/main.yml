@@ -40,7 +40,7 @@ jobs:
       # Fix href/paths because of subdirectory deployment
       - name: Fix href and paths
         run: |
-          find ./dist -name '*.html' -exec sed -i '' -E "s=(/favicon.ico|/_astro|/_snowpack)=${{ env.webRoot }}\1=g" {} \;
+          find ./dist -name '*.html' -exec sed -i -E "s=(/favicon.ico|/_astro|/_snowpack)=${{ env.webRoot }}\1=g" {} \;
 
       # Push to your pages repo
       - name: Push to pages repo
