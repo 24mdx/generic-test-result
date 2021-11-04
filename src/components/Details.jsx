@@ -12,19 +12,20 @@ export default function Details() {
     const [complete, setComplete] = useState(false);
 
     useEffect(() => {
-        var w = window, s = w.location.search, r, e, d, t, n;
+        var w = window, s = w.location.search, r, e, d, t, a, n;
         if (s && s.substr(0, 1) === '?') {
             r = s.substr(1),
                 e = atob(r),
                 d = e.substr(0, 10),
                 t = e.substr(11, 5),
-                n = e.substr(17);
+                a = e.substr(17, 3);
+                n = e.substr(21);
             
             setTid(r);
 
             setName(n);
             setDateTime(`${d} - ${t} Uhr`);
-            setType('Antigen-Schnelltest');
+            setType(a === 'agt' ? 'Antigen-Schnelltest' : a === 'pcr' ? 'Polymerase-Kettenreaktion (PCR)' : null );
 
             const ts = Date.parse(`${d}T${t}:00`);
             const now = Date.now();
@@ -92,7 +93,7 @@ export default function Details() {
                         <div>{dateTime || '-'}</div>
                     </div>
                     <div className="py-2 px-4">
-                        <div className="font-semibold text-gray-400">Typ</div>
+                        <div className="font-semibold text-gray-400">Test-Typ</div>
                         <div>{type || '-'}</div>
                     </div>
                 </div>
